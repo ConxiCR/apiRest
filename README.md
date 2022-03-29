@@ -2,6 +2,8 @@
 Aplicación para registrar una base de datos para poder consultar, borrar, modificar.
 Utilizaremos express, mongodb, TDD con jest
 
+[video #1](https://www.youtube.com/watch?v=of-c7lV0i6g)
+
 1. Estructura aplicación.
    
 - Creamos el package.json. Iniciamos el npm.
