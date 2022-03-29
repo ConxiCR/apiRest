@@ -42,5 +42,8 @@ Utilizaremos express, mongodb, TDD con jest
         - ARRANCAMOS APLICACIÓN 
         
             npm run dev
+            
+   ![image](https://user-images.githubusercontent.com/67627523/160562284-43a1b832-6d24-4851-809e-a382368f5803.png)
+
     Configuración de directorios
            
