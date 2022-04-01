@@ -20,7 +20,7 @@ Utilizaremos express, mongodb, TDD con jest
     
             1. Requerimos express. Express nos devuelve una función. Para crear la aplicación hay que lanzar la función. 
             2. Con el `module.exports = app;` exportamos la app.
-   Para crear el server traemos la libreria `node.js` con el htto.
+   Para crear el server traemos la libreria `node.js` con el http.
    Traemos la aplicación app.
    Creamos el servidor. Generamos una variable server con el método createServer le pasamos la app que se va a encargar de gestionar todas las peticiones y respuestas
         
@@ -48,4 +48,26 @@ Utilizaremos express, mongodb, TDD con jest
    ![image](https://user-images.githubusercontent.com/67627523/160562284-43a1b832-6d24-4851-809e-a382368f5803.png)
 
     Configuración de directorios
-           
+
+3. Módelo para guardar viajes
+   
+   [video #2](https://www.youtube.com/watch?v=CvO-JHjcwoM&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
+
+   Definiremos un módelo a donde vamos a introducir información para luego crear una colección dentro de la BBDD y crear documentos dentro de la colección. Cómo podemos generar los modelos que conectarán nuestra aplicación con las colecciones de MongoDB. Utilizamos la librería Mongoose para conseguir este objetivo y poder especificar qué tipos de valores vamos a almacenar y cuántos validadores necesitaremos.  
+
+    1. creamos un `modelo trip.models.js`
+        - Instalación de mongoose `npm install mongoose`
+        - Revisar en el packase.json que este instalada la libreria.
+        - De mongoose extraemos el Schema(clase que va a permitir generar la estructura o arquitectura que van a tener los diferentes documentos).
+        - Creación del Schema del trip. Utilizamos la libreria 'mongoose'.
+        - Creación de un objeto de la clase Schema. Definiremos que campos vamos a utilizar, así como validaciones para los campos.
+        - Los campos están acompañados de un objeto con tipos propios de mongoose para dar formato a todos los elementos que insertemos en la BBDD. En el campo 'category' definimos los tipos concretos con los valores que va a recuperar esta categoria 'enum:[...]'
+        - `timestamps: true` - Definimos como segundo parametro otras opciones. Para cada documento se genera el campo create date (en que momento se ha creado) y el update date (en que momento se ha actualizado).
+        - Exportamos. Llamamos al método model de moogose para que relacione el nombre de la colección(en minúsculas) con el Schema que lo representa. `module.exports = mongoose.model('trip', tripSchema);`
+        - Prueba del modelo - `fichero pruebaModelo.js`
+            . Traemos a mongoose. Lo vamos a utilizar para conectar.
+            . Traemos el modelo Trip
+            . Función autoejecutada. async await. Le indicamos la URL local + nombre BBDD
+            . Instalación [mondoDB](https://www.youtube.com/watch?v=gkCnXcxHC4o)(https://www.mongodb.com/try/download/community)
+            . Lo lanzamos para ver si se ejecuta correctamente.
+            

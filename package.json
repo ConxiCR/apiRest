@@ -19,7 +19,8 @@
   },
   "homepage": "https://github.com/ConxiCR/apiRest#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
