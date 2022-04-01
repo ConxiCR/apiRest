@@ -65,6 +65,7 @@ Utilizaremos express, mongodb, TDD con jest
         - `timestamps: true` - Definimos como segundo parametro otras opciones. Para cada documento se genera el campo create date (en que momento se ha creado) y el update date (en que momento se ha actualizado).
         - Exportamos. Llamamos al método model de moogose para que relacione el nombre de la colección(en minúsculas) con el Schema que lo representa. `module.exports = mongoose.model('trip', tripSchema);`
         - Prueba del modelo - `fichero pruebaModelo.js`
+        
                        1. Traemos a mongoose. Lo vamos a utilizar para conectar.
                        2. Traemos el modelo Trip
                        3. Función autoejecutada. async await. Le indicamos la URL local + nombre BBDD
@@ -72,7 +73,12 @@ Utilizaremos express, mongodb, TDD con jest
                        5. Lo lanzamos para ver si se ejecuta correctamente.
             
          ![image](https://user-images.githubusercontent.com/67627523/161260647-1a5eae6e-1a46-404d-b005-aa28dc02c38e.png)
+         
                         6. Comprobaciones:
                         en el shell de mongoDB: use nombrearchivo p.e. apiRest
                         7. `show collections;`
-                        8. Sobre la instancia de la BBDD interactuamos con la collection trips y que hag un find para buscar todos los documentos que hay dentro de la colección`db.trips.find();`
+                        8. Sobre la instancia de la BBDD interactuamos con la collection trips y que haga un find para buscar todos los documentos
+                         que hay dentro de la colección`db.trips.find();`
+                         
+          ![image](https://user-images.githubusercontent.com/67627523/161263723-8b706373-0a31-4cc5-a24e-6b3bb76ff5b5.png)
+
