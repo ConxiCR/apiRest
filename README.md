@@ -72,3 +72,7 @@ Utilizaremos express, mongodb, TDD con jest
                        5. Lo lanzamos para ver si se ejecuta correctamente.
             
          ![image](https://user-images.githubusercontent.com/67627523/161260647-1a5eae6e-1a46-404d-b005-aa28dc02c38e.png)
+                        6. Comprobaciones:
+                        en el shell de mongoDB: use nombrearchivo p.e. apiRest
+                        7. `show collections;`
+                        8. Sobre la instancia de la BBDD interactuamos con la collection trips y que hag un find para buscar todos los documentos que hay dentro de la colección`db.trips.find();`
