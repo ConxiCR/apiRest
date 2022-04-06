@@ -68,11 +68,60 @@ Utilizaremos express, mongodb, TDD con jest
                        1. Traemos a mongoose. Lo vamos a utilizar para conectar.
                        2. Traemos el modelo Trip
                        3. Función autoejecutada. async await. Le indicamos la URL local + nombre BBDD
-                       4. Instalación [mondoDB](https://www.youtube.com/watch?v=gkCnXcxHC4o)(https://www.mongodb.com/try/download/community)
+                       4. Instalación [mondoDB](https://www.youtube.com/watch?v=gkCnXcxHC4o)(https://www.mongodb.com/try/download/community). 
+                             . Ruta: C:\Program Files\MongoDB\Server\5.0\bin (1º abrir carpeta mongod.exe 2º abrir carpeta mongo aplicacion)
+                             En el terminal de mongo escribir:
+
+
                        5. Lo lanzamos para ver si se ejecuta correctamente.
             
          ![image](https://user-images.githubusercontent.com/67627523/161260647-1a5eae6e-1a46-404d-b005-aa28dc02c38e.png)
-                        6. Comprobaciones:
-                        en el shell de mongoDB: use nombrearchivo p.e. apiRest
-                        7. `show collections;`
-                        8. Sobre la instancia de la BBDD interactuamos con la collection trips y que hag un find para buscar todos los documentos que hay dentro de la colección`db.trips.find();`
+                        1. Comprobaciones:
+                        en el shell de mongoDB: `use nombrearchivo` p.e. apiRest
+                        2. `show collections;`
+                        3. Sobre la instancia de la BBDD interactuamos con la collection trips y que haga un find para buscar todos los documentos que hay dentro de la colección. En el shell de mongo `db.trips.find();`
+
+4. Test y primera ruta
+   [video #3](https://www.youtube.com/watch?v=xJzeYvelDqo&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
+   
+   En la carpeta `Test` instalamos herramientas a nivel de desarrollo:
+                - `Jest` ejecutor de test
+                - `supertest` permite hacer peticiones a la aplicación sin tener que levantarla.
+                - `types/jest` para tener autocompletado.
+               
+                npm install --save-dev jest supertest @types/jest
+
+Creamos el test para la recuperación de los datos.
+
+**Levantamos la aplicación `npm run dev`**
+**Creación carpeta `api` dentro de `test` para meter los test.**
+**Creación fichero test `trips.route.spec.js`**
+**En package.json creación de un script para llamar a jest para se ejecuten todos los test**
+Ejecutamos [jest](https://jestjs.io) `npm test`
+
+Los test se organizan con `describe`(definir pequeños grupos de pruebas para organizar como lanzamos y ejecutamos las diferentes pruebas unitarias) y con `IT`.
+Fichero rutas para probar un grupo de pruebas:
+            1. GET - comprobar que la URL funciona. 
+                   - Devuelve lo que necesitamos.
+                   - Refactorizar
+
+Creación rutas:
+    - En la carpeta `routes` creamos un fichero `index.js` para definir la configuración global de las rutas para la aplicación. Nos traemos el router de `express` y lo exportamos directamente. Enviamos todas las rutas al `index.js` que esta dentro de la carpeta `api`(enrutador local para la api)
+    - Creamos un fichero `trips.route.js` de rutas especifico de trips para poder separar las funcionalidades. Es un manejador de rutas final. Recupera los datos de los trips[].
+    - En el fichero `app.js` le indicamos que todas las peticiones vayan a una carpeta determinada de rutas. Configuración de la aplicación.
+
+
+
+Errores:
+1. `Expected substring: "json"
+    Received string:    "text/html; charset=utf-8"`
+2. No devuelve una array de trips
+
+Soluciones:
+1. En trips.route.js cambiamos send por json
+
+
+
+
+
+

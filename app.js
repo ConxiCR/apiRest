@@ -6,9 +6,12 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 
-app.get('/', (req, res) => {
+//ruta de pruebas
+/*app.get('/', (req, res) => {
     res.send('Todo OK en el servidor')
-})
+})*/
+//todas las peticiones tienen que ir a la carpeta de rutas
+app.use(require('./routes'));
 
 module.exports = app;
 
