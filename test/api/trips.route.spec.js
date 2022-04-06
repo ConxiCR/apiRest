@@ -5,7 +5,7 @@ const app = require('../../app');
 describe('Pruebas sobre la API de trips', () => {
 
     beforeAll(async() => {
-        await mongoose.connect('mongodb://127.0.0.1:2701/apiRest');
+        await mongoose.connect('mongodb://127.0.0.1:27017/apiRest');
     });
     
     //desconexión mongoose después de todas las pruebas
