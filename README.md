@@ -2,7 +2,7 @@
 Aplicación para registrar una base de datos para poder consultar, borrar, modificar.
 Utilizaremos express, mongodb, TDD con jest
 
-**1. Estructura aplicación** [video #1](https://www.youtube.com/watch?v=of-c7lV0i6g)
+### 1. Estructura aplicación [video #1](https://www.youtube.com/watch?v=of-c7lV0i6g)
    
 - Creamos el package.json. Iniciamos el npm.
 
@@ -50,7 +50,7 @@ Utilizaremos express, mongodb, TDD con jest
 
     Configuración de directorios
 
-**2. Módelo para guardar viajes** [video #2](https://www.youtube.com/watch?v=CvO-JHjcwoM&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
+### 2. Módelo para guardar viajes [video #2](https://www.youtube.com/watch?v=CvO-JHjcwoM&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
 
 Definiremos un módelo a donde vamos a introducir información para luego crear una colección dentro de la BBDD y crear documentos dentro de la colección. Cómo podemos generar los modelos que conectarán nuestra aplicación con las colecciones de MongoDB. Utilizamos la librería Mongoose para conseguir este objetivo y poder especificar qué tipos de valores vamos a almacenar y cuántos validadores necesitaremos.  
    
@@ -86,7 +86,7 @@ Definiremos un módelo a donde vamos a introducir información para luego crear 
                          
 ![image](https://user-images.githubusercontent.com/67627523/161263723-8b706373-0a31-4cc5-a24e-6b3bb76ff5b5.png)
 
-**3. Test y primera ruta** [video #3](https://www.youtube.com/watch?v=xJzeYvelDqo&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
+### 3. Test y primera ruta [video #3](https://www.youtube.com/watch?v=xJzeYvelDqo&list=PLs4YDKCLLrp-44HNv4j-Efw6WZITMzxo1&index=2)
    
    En la carpeta `Test` instalamos herramientas a nivel de desarrollo:
    
@@ -119,12 +119,12 @@ Creación rutas:
 
 
 
-Errores:
+### Errores: ###
 1. `Expected substring: "json"
     Received string:    "text/html; charset=utf-8"`
 2. No devuelve una array de trips
 
-Soluciones:
+### Soluciones: ###
 1. En trips.route.js cambiamos send por json
 
 
