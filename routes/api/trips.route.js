@@ -15,4 +15,17 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res) => {
+    //res.json('Texto random');
+    try {
+        const newTrip = await Trip.create(req.body);
+        res.json(newTrip);
+
+    } catch (error) {
+       res.status(500).json({ error: 'Ha ocurrido un error'}); 
+    }
+   
+
+});
+
 module.exports = router;
