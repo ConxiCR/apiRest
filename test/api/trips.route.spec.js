@@ -35,11 +35,13 @@ describe('Pruebas sobre la API de trips', () => {
     //2ª POST
     describe('POST/api/trips', () => {
 
-        const newTrip = {name: 'test trip', destination: 'Berlín', category:'friends', star_date: '2022-06-20' }
-
-        /*afterAll(async() => {
+        const newTrip = { name: 'test trip', destination: 'Berlín', category:'friends', start_date: '2022-06-20' }
+        const wrongTrip = { nombre: 'test trip' };
+        //limpieza después de testear las pruebas
+        afterAll(async() => {
             await Trip.deleteMany({name:'test trip'});
-        })*/
+        });
+
         //1ª prueba. Ruta funciona
         it('La ruta funciona', async () => {
             const response = await request(app).post('/api/trips').send(newTrip);
@@ -54,6 +56,12 @@ describe('Pruebas sobre la API de trips', () => {
             expect(response.body._id).toBeDefined();
             expect(response.body.name).toBe(newTrip.name);
         
+        });
+        //3ª prueba
+        it('Error en la inserción', async() => {
+            const response = await request(app).post('/api/trips').send(wrongTrip);
+            expect(response.status).toBe(500);
+            expect(response.body.error).toBeDefined();
         });
     });
 });
