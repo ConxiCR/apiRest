@@ -2,6 +2,7 @@ const request = require('supertest');
 const mongoose = require('mongoose');
 const app = require('../../app');
 const Trip = require('../../models/trip.model');
+const { put } = require('../../routes');
 
 describe('Pruebas sobre la API de trips', () => {
 
@@ -62,6 +63,30 @@ describe('Pruebas sobre la API de trips', () => {
             const response = await request(app).post('/api/trips').send(wrongTrip);
             expect(response.status).toBe(500);
             expect(response.body.error).toBeDefined();
+        });
+    });
+    //3ª PUT
+    describe('PUT/api/trips', () => {
+
+        let trip;
+        beforeEach(async() => {
+            trip = await Trip.create({ name: 'test trip', destination: 'Barcelona', category: 'friends', start_date: '2022-05-08' });
+
+        });
+        afterEach(async() => {
+            await Trip.findByIdAndDelete(trip._id);
+        });
+        it('La ruta funciona', async() => {
+            const response = await request(app).put(`/api/trips/${trip._id}`).send({ name: 'trip updated'});
+        
+            expect(response.status).toBe(200);
+            expect(response.headers['content-type']).toContain('json');
+        });
+        it('Se actualiza correctamente', async() => {
+            const response = await request(app).put(`/api/trips/${trip._id}`).send({ name: 'trip updated'});
+            
+            expect(response.body._id).toBeDefined();
+            expect(response.body.name).toBe('trip updated');
         });
     });
 });
