@@ -89,4 +89,24 @@ describe('Pruebas sobre la API de trips', () => {
             expect(response.body.name).toBe('trip updated');
         });
     });
+    //4ª DELETE
+    describe('DELETE/api/trips',()=> {
+        let trip;
+        let response;
+        beforeEach(async() => {
+            trip = await Trip.create({name: 'test trip', destination: 'Barcelona', category: 'friends', start_date: '2022-05-08'})
+            response = await request(app).delete(`/api/trips/${trip._id}`).send();
+        });
+        it('La ruta funciona', async() => {
+            
+            expect(response.status).toBe(200);
+            expect(response.headers['content-type']).toContain('json');
+        });
+        it('Borra correctamente', async() => {
+            expect(response.body._id).toBeDefined();
+            
+            const foundTrip = await Trip.findById(trip._id);
+            expect(foundTrip).toBeNull();
+        });
+    });
 });
